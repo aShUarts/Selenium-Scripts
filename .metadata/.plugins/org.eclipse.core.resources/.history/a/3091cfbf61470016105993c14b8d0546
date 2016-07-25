@@ -1,0 +1,31 @@
+// This program uses a parameterized method.
+
+public class Box2 {
+
+	double width;
+	double height;
+	double length;
+	
+	double volume()
+	{
+		return width*height*length;
+	
+	}
+	
+	void setvalue(double w,double h, double l)
+	{
+		width=w;
+		height=h;
+		length=l;
+		
+	}
+	public static void main(String[] args) {
+		
+		Box2 b1=new Box2();
+		Box2 b2=new Box2();
+
+		b1.setvalue(11, 5.5, 6);
+		System.out.println("The Volume of Box is "+b1.volume()+"cube m");;
+	}
+
+}

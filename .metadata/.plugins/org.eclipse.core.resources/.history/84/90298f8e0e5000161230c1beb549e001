@@ -1,0 +1,99 @@
+
+
+
+
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class CRM {
+  private WebDriver driver;
+  private String baseUrl;
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
+
+  @Before
+  public void setUp() throws Exception {
+    driver = new FirefoxDriver();
+    baseUrl = "http://192.168.101.186/";
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+  }
+
+  @Test
+  public void testUntitled() throws Exception {
+    driver.get(baseUrl + "/login.php");
+    driver.findElement(By.id("password")).clear();
+    driver.findElement(By.id("password")).sendKeys("welcome");
+    driver.findElement(By.id("email")).clear();
+    driver.findElement(By.id("email")).sendKeys("virendra.bhati@asergis.in");
+    driver.findElement(By.id("submit")).click();
+    driver.findElement(By.linkText("Admin Panel")).click();
+    driver.findElement(By.linkText("CRM")).click();
+    driver.findElement(By.linkText("Add Customer")).click();
+    driver.findElement(By.id("company_name")).clear();
+    driver.findElement(By.id("company_name")).sendKeys("Selenium Automation Test1");
+    driver.findElement(By.id("crm_cudtomer_email_id")).clear();
+    driver.findElement(By.id("crm_cudtomer_email_id")).sendKeys("automation001@mailinator.com");
+    new Select(driver.findElement(By.id("id_industry_master"))).selectByVisibleText("Advocates");
+    driver.findElement(By.id("corporate_contact_no")).clear();
+    driver.findElement(By.id("corporate_contact_no")).sendKeys("899456464645");
+    driver.findElement(By.id("crm_cpd_person_name")).clear();
+    driver.findElement(By.id("crm_cpd_person_name")).sendKeys("Selenium Guy");
+    driver.findElement(By.id("crm_cpd_email_id")).clear();
+    driver.findElement(By.id("crm_cpd_email_id")).sendKeys("automation001@mailinator.com");
+    driver.findElement(By.id("crm_cpd_contact_no")).clear();
+    driver.findElement(By.id("crm_cpd_contact_no")).sendKeys("98995288745");
+    new Select(driver.findElement(By.id("crm_cpd_designation"))).selectByVisibleText("IT");
+    driver.findElement(By.cssSelector("#sizzle-1469089901100 > div.ibox-title > div.ibox-tools > a.collapse-link > i.fa.fa-chevron-up")).click();
+    new Select(driver.findElement(By.id("account_manager"))).selectByVisibleText("Anil Test2");
+    driver.findElement(By.xpath("//input[@value='Submit Customer Detail']")).click();
+    driver.findElement(By.linkText("Log out")).click();
+  }
+
+  @After
+  public void tearDown() throws Exception {
+    driver.quit();
+    String verificationErrorString = verificationErrors.toString();
+    if (!"".equals(verificationErrorString)) {
+      fail(verificationErrorString);
+    }
+  }
+
+  private boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+
+  private boolean isAlertPresent() {
+    try {
+      driver.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+
+  private String closeAlertAndGetItsText() {
+    try {
+      Alert alert = driver.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
+}

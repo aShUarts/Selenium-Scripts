@@ -1,0 +1,39 @@
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+
+
+public class Test {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) 
+	{
+////		// TODO Auto-generated method stub
+////		System.setProperty("webdriver.chrome.driver", "d://chromedriver.exe");
+//////		WebDriver driver=new FirefoxDriver();//Defines to selenium that to allocate a object into memory of Firefox driver
+////		WebDriver driver = new ChromeDriver();
+////		driver.get("http://www.asergis.org/home/");
+////		driver.manage().window().maximize();
+////		System.out.println(driver.getCurrentUrl());
+////		//System.out.println(driver.getPageSource());
+////		System.out.println(driver.getTitle());
+//	
+		String url = "jdbc:mysql://localhost:3306/test";
+		String username = "root";
+		String password = "";
+
+		System.out.println("Connecting database...");
+
+		try (Connection connection = DriverManager.getConnection(url, username, password)) {
+		    System.out.println("Database connected!");
+		} catch (SQLException e) {
+		    throw new IllegalStateException("Cannot connect the database!", e);
+		}
+}
+	}

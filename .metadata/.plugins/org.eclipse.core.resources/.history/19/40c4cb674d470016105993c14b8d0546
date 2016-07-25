@@ -1,0 +1,25 @@
+
+public class Box {
+	
+	double width;
+	double length;
+	double height;
+	
+	void displayvolume()
+	{
+		System.out.println("The Volume of Box is "+(width*length*height));
+	}
+	
+	void displayparameter()
+	{
+		System.out.println("The parameter of the Box is " +(width+length+height));
+	}
+	
+	public static void main(String args[])
+	{
+		Box b1=new Box();
+		b1.displayvolume();
+		b1.displayparameter();
+		
+	}
+}

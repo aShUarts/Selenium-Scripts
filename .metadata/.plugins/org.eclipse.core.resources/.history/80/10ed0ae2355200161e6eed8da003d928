@@ -1,0 +1,34 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
+public class Area {
+
+	double radius;
+	double area;
+	
+	void getradius() throws NumberFormatException, IOException
+	{
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Please Enter the Radius of the circle to Calulate the Area");
+		radius= Integer.parseInt(br.readLine());
+		
+	}
+	
+	double AreaCalculation()
+	{ double r;
+	  r= radius;
+		area= Math.PI*Math.sqrt(r);
+		return(area);
+	}
+	
+	public static void main(String args[]) throws NumberFormatException, IOException
+	{
+		Area a1= new Area();
+		a1.getradius();
+		System.out.println("The Area of the Circle is: ");
+		a1.AreaCalculation();
+	}
+}

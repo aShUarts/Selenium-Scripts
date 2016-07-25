@@ -1,0 +1,30 @@
+/* Here, Box uses a constructor to initialize the
+dimensions of a box.
+*/
+public class Box3 {
+
+	double width;
+	double length;
+	double height;
+	
+	Box3()
+	{
+	 width=10;
+	 length=10;
+	 height=10;
+	}
+	
+	double volume()
+	{
+		return width*length*height;
+	}
+	
+	public static void main(String args[])
+	{
+		Box3 b1=new Box3();
+		Box3 b2 =new Box3();
+		
+		System.out.println("The Volume of box1 is " +b1.volume());
+		System.out.println("The Volume of Box2 is "+b2.volume());
+	}
+}

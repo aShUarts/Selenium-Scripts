@@ -1,0 +1,21 @@
+
+class calculate 
+{
+  int a;
+  int b;
+
+  void sum(int a,int b)
+  {
+  System.out.println("The Sum is: "+(a+b));
+  }
+  void sum(int a,int b,int c)
+  {
+  System.out.println("The Sum is: "+(a+b+c));
+  }
+  public static void main(String args[])
+  {
+    calculate obj=new calculate();
+    obj.sum(10,20);
+    obj.sum(20,20,20);
+ }
+}
