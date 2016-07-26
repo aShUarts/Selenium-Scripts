@@ -1,0 +1,36 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+
+
+public class CRMClosure extends Day1{
+
+	
+	public static void main(String args[]) throws SQLException
+	{
+		
+		//Day1.CRM();
+		
+		MysqlDataSource dataSource = new MysqlDataSource();
+		dataSource.setDatabaseName("PDO_MYSQL");
+		dataSource.setUser("amp_admin_new");
+		dataSource.setPassword("maLu2Ec8");
+		dataSource.setServerName("192.168.101.38");
+		java.sql.Connection conn = dataSource.getConnection();
+		java.sql.Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT crm_cudtomer_email_id FROM am_crm ORDER BY created_date DESC LIMIT 1;");
+		while (rs.next()) {
+		int x = rs.getInt("crm_cudtomer_email_id");
+		System.out.println(x);
+		}
+		//Day1.driver.findElement(By.xpath("//input[@value="Email"]"));
+		
+		
+	}
+	
+	
+}

@@ -1,0 +1,53 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+
+
+public class ACProvisioning extends CRMClosure{
+
+	public static void main (String args[])
+	{
+		   CRMClosure c = new CRMClosure();
+		
+			c.driver.findElement(By.id("email")).sendKeys("virendra.bhati@asergis.in");
+			c.driver.findElement(By.id("password")).sendKeys("welcome");
+			c.driver.findElement(By.id("submit")).click();
+			c.driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+			c.driver.findElement(By.linkText("Admin Panel")).click();
+			c.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			//c.Closure();
+			c.driver.findElement(By.linkText("Provisioning")).click();
+			/*MysqlDataSource dataSource = new MysqlDataSource();
+		    dataSource.setDatabaseName("amp_dev_v2");
+		    dataSource.setUser("amp_admin_new");
+		    dataSource.setPassword("maLu2Ec8");
+		    dataSource.setServerName("192.168.101.38");
+		    java.sql.Connection conn = dataSource.getConnection();
+		    java.sql.Statement stmt = conn.createStatement();
+		    ResultSet rs = stmt.executeQuery("SELECT company_name FROM am_crm WHERE COMMENT='The Account Manager has been selected' ORDER BY created_date DESC LIMIT 1;");
+		    while (rs.next()) {
+		    String x = rs.getString("company_name");
+		   
+		    System.out.println(x);
+		    }
+		   
+		    c.driver.findElement(By.xpath("//input[@value='Company']")).sendKeys(rs.getString("company_name"));
+			c.driver.findElement(By.linkText("Add to Provision")).click();
+			
+			
+		} catch (SQLException e) {
+			
+			System.out.println(e);
+		}
+		
+		
+	}*/
+		
+	}
+		
+	
+}

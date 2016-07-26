@@ -1,0 +1,27 @@
+import java.sql.SQLException;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+
+
+public class CRMClosure extends Day1{
+
+	
+	public static void main(String args[]) throws SQLException
+	{
+		
+		Day1.CRM();
+		DBConnection db= new DBConnection();
+		Day1.driver.findElement(By.xpath("//input[@value='Email']")).sendKeys(db.dbconnection());
+		Day1.driver.findElement(By.xpath(".//*[@id='crm_list']/tbody/tr/td[2]/a")).click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Day1.driver.findElement(By.id("button2")).click();
+		Day1.driver.findElement(By.id("product_type")).sendKeys("Audio Conferencing");
+		Day1.driver.findElement(By.xpath(".//*[@id='CrmCloserForm']/div[2]/input[1]")).click();
+		
+		
+		
+	}
+	
+	
+}
