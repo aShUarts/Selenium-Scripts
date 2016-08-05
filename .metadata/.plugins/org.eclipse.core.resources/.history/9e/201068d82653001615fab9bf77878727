@@ -1,9 +1,0 @@
-
-public class StaticvarDeclare extends DBConnection {
-
-	public static void main(String args[])
-	{
-		DBConnection.
-		
-	}
-}
